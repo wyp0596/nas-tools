@@ -159,7 +159,7 @@ def login():
 
     # 登录认证
     if request.method == 'GET':
-        GoPage = request.args.get("next") or ""
+        GoPage = request.args.get("next") or "downloading"
         if GoPage.startswith('/'):
             GoPage = GoPage[1:]
         if current_user.is_authenticated:
@@ -174,7 +174,7 @@ def login():
             return redirect_to_login()
 
     else:
-        GoPage = request.form.get('next') or ""
+        GoPage = request.form.get('next') or "downloading"
         if GoPage.startswith('/'):
             GoPage = GoPage[1:]
         username = request.form.get('username')
